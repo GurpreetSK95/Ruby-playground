@@ -9,10 +9,9 @@ puts "\n"
 
 puts 'The program will take input from user and compare passwords'
 
-choice = nil
 attempts = 0
 
-while choice != 'q'
+while attempts < 3
   print 'Username: '
   username = gets.chomp
   print 'Password: '
@@ -25,18 +24,13 @@ while choice != 'q'
     else
       puts 'Credentials aren\'t correct'
       puts 'Press q to quit, any other key to continue'
+      break if gets.chomp == 'q'
       attempts += 1
-      choice = gets.chomp
     end
   else
     puts 'Credentials aren\'t correct'
     puts 'Press q to quit, any other key to continue'
+    break if gets.chomp == 'q'
     attempts += 1
-    choice = gets.chomp
-  end
-
-  if attempts >= 3
-    puts 'Attempts limit crossed'
-    exit(0)
   end
 end
