@@ -26,6 +26,14 @@ class ExceptionHandling
     puts "Error message #{e.message}"
     puts "Error backtrace #{e.backtrace}"
   end
+
+  def rescue_me(item_to_be_divided)
+    item_to_be_divided / 0
+  rescue
+    puts 'Boom!'
+  ensure
+    puts 'After Boom!'
+  end
 end
 
 obj = ExceptionHandling.new
@@ -33,3 +41,4 @@ obj = ExceptionHandling.new
 obj.handled_divide_by_zero(450)
 obj.handled_divide_by_zero_and_more(54)
 obj.capture_with_message(54)
+obj.rescue_me(312)
